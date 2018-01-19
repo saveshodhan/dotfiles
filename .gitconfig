@@ -1,0 +1,19 @@
+[alias]
+    br = branch
+    co = checkout
+    cob = checkout -b
+    delete-merged-branches = "!git co master && git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+    df = diff
+    ireb = rebase -i
+    lol = log --graph --pretty=format:'%Cred%h%Creset - [%C(yellow)%cd%Creset] - %s %Cgreen(%cr) %C(cyan)<%an>%Creset' --abbrev-commit --date=iso-local --all -20
+    lom = !UN=$(git config user.name)&& git lol --author="\"$UN\""
+    oops = reset --soft HEAD^
+    st = status -bs
+    stf = status
+
+[core]
+    editor = vim
+    quotepath = false
+[user]
+[diff]
+	tool = vimdiff
