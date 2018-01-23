@@ -6,6 +6,9 @@ An "always evolving" repository of config files
 - .bashrc
 
 - .gitconfig
--- Thanks to:
---- https://coderwall.com/p/euwpig/a-better-git-log
---- https://git-scm.com/docs/pretty-formats
+
+Thanks to:
+
+https://coderwall.com/p/euwpig/a-better-git-log
+
+https://git-scm.com/docs/pretty-formats
