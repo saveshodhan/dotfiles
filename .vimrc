@@ -21,6 +21,7 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'rstacruz/sparkup'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'will133/vim-dirdiff'
+Plugin 'tpope/vim-vividchalk'
 
 " add all your plugins here (note older versions of Vundle
 " used Bundle instead of Plugin)
