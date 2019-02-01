@@ -1,4 +1,5 @@
 # generic aliases
+alias crontab="crontab -i"
 alias cd..="cd .."
 alias ll='ls -alFh --group-directories-first'
 alias llp='ll *.py'
