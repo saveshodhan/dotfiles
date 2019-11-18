@@ -7,8 +7,9 @@
     dft = difftool
     dfn = diff --name-only
     ireb = rebase -i
-    lol = log --graph --pretty=format:'%Cred%h%Creset %C(auto)%d - %s %Cgreen(%cr) %C(cyan)<%an>%Creset [%C(yellow)%cd%Creset]' --abbrev-commit --date=iso-local --all -20
+    lol = log --graph --pretty=format:'%Cred%h%Creset %C(auto)%d - %s %Cgreen(%cr) %C(cyan)<%an>%Creset [%C(yellow)%cd%Creset]' --abbrev-commit --date=iso-local -20
     lom = !UN=$(git config user.name)&& git lol --author="\"$UN\""
+    lola = !git lol --all
     oops = reset --soft HEAD^
     st = status -bs
     stf = status
