@@ -25,6 +25,7 @@ Plugin 'tpope/vim-vividchalk'
 Plugin 'vim-airline/vim-airline'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'majutsushi/tagbar'
+Plugin 'tomasiser/vim-code-dark'
 
 " add all your plugins here (note older versions of Vundle
 " used Bundle instead of Plugin)
@@ -40,6 +41,7 @@ filetype plugin indent on    " required
 
 " colorscheme molokai
 colorscheme monokai
+" colorscheme codedark
 " colorscheme vividchalk
 " vividchalk does not load correct bg when sourced from vimrc (https://github.com/tpope/vim-vividchalk/issues/7) "
 " hence this hack below (https://stackoverflow.com/a/8696611/4260095) "
@@ -65,12 +67,13 @@ nnoremap <Space>f :set foldmethod=indent<CR>
 "set foldmethod=indent
 set foldlevel=99
 hi Folded ctermbg=0 " have no background for the line that shows folded code
+hi Folded ctermfg=gray " have no background for the line that shows folded code
 
 " search settings "
 set hlsearch
 set incsearch
 set ignorecase
-hi Search ctermfg=black ctermbg=yellow  "fg and bg settings for highlighted text
+hi Search ctermfg=black ctermbg=yellow  " fg and bg settings for highlighted text
 nnoremap <Space><Space> :noh<CR>    " remove search highlighting
 
 " vim buffer settings "
@@ -107,15 +110,18 @@ match ExtraWhitespace /\s\+$/
 set statusline+=\ %=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+let g:syntastic_python_checkers=['flake8']
+let g:syntastic_python_flake8_args='--ignore=E501,E731'
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
+let g:syntastic_check_on_open = 0
+" let g:syntastic_check_on_wq = 0
 function! SyntasticCheckHook(errors)
     if !empty(a:errors)
         let g:syntastic_loc_list_height = min([len(a:errors), 10])
     endif
 endfunction
+let g:syntastic_quiet_messages = { "!level": "errors" }
 
 " NERDTree settings "
 nnoremap <silent> <C-n> :NERDTreeToggle<CR>
