@@ -26,6 +26,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'majutsushi/tagbar'
 Plugin 'tomasiser/vim-code-dark'
+Plugin 'altercation/vim-colors-solarized'
 
 " add all your plugins here (note older versions of Vundle
 " used Bundle instead of Plugin)
@@ -40,8 +41,9 @@ filetype plugin indent on    " required
 "================="
 
 " colorscheme molokai
-colorscheme monokai
-" colorscheme codedark
+" colorscheme monokai
+colorscheme codedark
+" colorscheme spacecamp
 " colorscheme vividchalk
 " vividchalk does not load correct bg when sourced from vimrc (https://github.com/tpope/vim-vividchalk/issues/7) "
 " hence this hack below (https://stackoverflow.com/a/8696611/4260095) "
@@ -111,7 +113,7 @@ set statusline+=\ %=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 let g:syntastic_python_checkers=['flake8']
-let g:syntastic_python_flake8_args='--ignore=E501,E731'
+let g:syntastic_python_flake8_args='--ignore=Q000,W503,E116,E117,E731'
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
@@ -121,7 +123,7 @@ function! SyntasticCheckHook(errors)
         let g:syntastic_loc_list_height = min([len(a:errors), 10])
     endif
 endfunction
-let g:syntastic_quiet_messages = { "!level": "errors" }
+" let g:syntastic_quiet_messages = { "!level": "errors" }   " commenting this for now as I need to know the warnings as well
 
 " NERDTree settings "
 nnoremap <silent> <C-n> :NERDTreeToggle<CR>
