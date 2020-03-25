@@ -9,6 +9,7 @@ alias tree="tree -A -C"
 alias lesf="less +F"
 alias vi='vim'
 alias vr='vim -R'
+alias mgrep='grep -Hnr --exclude tags --exclude *.pyc --exclude-dir .*venv.*'
 pdir() {
     ll /proc/$1/cwd
 }
