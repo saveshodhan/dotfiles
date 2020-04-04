@@ -98,6 +98,7 @@ set mouse=a
 set ruler
 set nu
 set hidden
+set colorcolumn=120
 
 let mapleader=','
 nnoremap <Space>l :set list!<CR>
