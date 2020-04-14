@@ -26,7 +26,8 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'majutsushi/tagbar'
 Plugin 'tomasiser/vim-code-dark'
-Plugin 'altercation/vim-colors-solarized'
+Plugin 'sickill/vim-monokai'
+Plugin 'tomasr/molokai'
 
 " add all your plugins here (note older versions of Vundle
 " used Bundle instead of Plugin)
@@ -41,8 +42,8 @@ filetype plugin indent on    " required
 "================="
 
 " colorscheme molokai
-" colorscheme monokai
-colorscheme codedark
+colorscheme monokai
+" colorscheme codedark
 " colorscheme spacecamp
 " colorscheme vividchalk
 " vividchalk does not load correct bg when sourced from vimrc (https://github.com/tpope/vim-vividchalk/issues/7) "
@@ -89,7 +90,7 @@ let g:AutoPairsFlyMode = 0
 let g:AutoPairsShortcutBackInsert = '<M-b>'
 
 " DirDiff settings "
-let g:DirDiffExcludes = "*.pyc,.svn*,.svn/*"    " excludes these file extns in DirDiff
+let g:DirDiffExcludes = "*.pyc,.svn*,.svn/*,.git*,.git/*"    " excludes these file extns in DirDiff
 
 " general settings "
 "set statusline=%m\ %F%r%h%w\ %y\ lines=%L\ x=%l\ y=%v\ %p%%
@@ -98,7 +99,10 @@ set mouse=a
 set ruler
 set nu
 set hidden
-set colorcolumn=120
+
+if !&diff
+    set colorcolumn=120
+endif
 
 let mapleader=','
 nnoremap <Space>l :set list!<CR>
@@ -118,6 +122,7 @@ let g:syntastic_python_flake8_args='--ignore=Q000,W503,E116,E117,E731'
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
+let g:syntastic_aggregate_errors = 1
 " let g:syntastic_check_on_wq = 0
 function! SyntasticCheckHook(errors)
     if !empty(a:errors)
