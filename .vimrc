@@ -153,8 +153,8 @@ let g:airline#extensions#tabline#formatter = 'unique_tail'
 
 
 " NERDCommenter settings"
-let g:NERDSpaceDelims = 1
-let g:NERDCommentEmptyLines = 1
+" let g:NERDSpaceDelims = 1
+" let g:NERDCommentEmptyLines = 1
 
 " Tagbar settings "
 nnoremap <F8> :TagbarToggle<CR>
