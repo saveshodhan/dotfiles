@@ -28,6 +28,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'tomasiser/vim-code-dark'
 Plugin 'sickill/vim-monokai'
 Plugin 'tomasr/molokai'
+Plugin 'jaredgorski/SpaceCamp'
 
 " add all your plugins here (note older versions of Vundle
 " used Bundle instead of Plugin)
@@ -101,7 +102,7 @@ set nu
 set hidden
 
 if !&diff
-    set colorcolumn=120
+    set colorcolumn=90,120
 endif
 
 let mapleader=','
