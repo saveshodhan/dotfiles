@@ -29,6 +29,7 @@ Plugin 'tomasiser/vim-code-dark'
 Plugin 'sickill/vim-monokai'
 Plugin 'tomasr/molokai'
 Plugin 'jaredgorski/SpaceCamp'
+Plugin 'frazrepo/vim-rainbow'
 
 " add all your plugins here (note older versions of Vundle
 " used Bundle instead of Plugin)
@@ -156,6 +157,7 @@ let g:airline#extensions#tabline#formatter = 'unique_tail'
 " NERDCommenter settings"
 " let g:NERDSpaceDelims = 1
 " let g:NERDCommentEmptyLines = 1
+let g:NERDDefaultAlign = 'left'
 
 " Tagbar settings "
 nnoremap <F8> :TagbarToggle<CR>

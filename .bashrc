@@ -33,6 +33,8 @@ alias gdt="git difftool"
 
 # kubectl realted aliases
 alias kcl="kubectl"
+alias kgc="kcl config current-context"
+alias kpf="kcl port-forward"
 
 # kubectl get pods #
 kgp(){
@@ -43,24 +45,27 @@ kgp(){
         kcl get pods | grep $1;
     fi
 }
-alias kgc="kcl config get-contexts"
-alias kpf="kcl port-forward"
 
 # watch kubectl get pods #
 kwp(){
     if [ "$1" == "" ];
     then
-        watch `kubectl get pods`;
+        watch -n 1 'kubectl get pods';
     else
-        watch `kubectl get pods | grep --color=never $1`;
+        watch -n 1 'kubectl get pods | grep --color=never' $@;
     fi
 }
 
 # kubectl logs with filters #
 klogs(){
-    kcl logs -f $1 | egrep -v '_healthz|_readyz|prometheus_scheduler|swagger' | jq -R 'fromjson?'
+    kcl logs -f $1 | egrep -v 'logger|prometheus|healthcheck' | jq -R -r '. as $line | try fromjson catch $line'
 }
 
 kxec(){
     kcl exec -it $1 bash
 }
+# virtualenvwrapper settings #
+export VIRTUALENVWRAPPER_PYTHON=$(which python3)
+export WORKON_HOME=~/projects/venvs
+source ~/.local/bin/virtualenvwrapper.sh
+

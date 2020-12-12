@@ -13,6 +13,7 @@
     oops = reset --soft HEAD^
     st = status -bs
     stf = status
+    recommit = commit --amend
 
 [core]
     editor = vim
