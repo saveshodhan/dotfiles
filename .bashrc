@@ -5,11 +5,11 @@ alias ll='ls -alFh --group-directories-first'
 alias llp='ll *.py'
 alias lld="ll | grep ^d"
 alias mps="ps aux | grep 'python' | grep $USER"
-alias tree="tree -A -C"
+alias tree="tree -A -C -I '*cache*'"
 alias lesf="less +F"
 alias vi='vim'
 alias vr='vim -R'
-alias mgrep='grep -Hnr --exclude tags --exclude *.pyc --exclude-dir venv --exclude-dir coverage'
+alias mgrep='grep -Hnr --exclude tags --exclude *.pyc --exclude *.orig --exclude-dir venv --exclude-dir reports --exclude-dir .git'
 pdir() {
     ll /proc/$1/cwd
 }
@@ -35,6 +35,16 @@ alias gdt="git difftool"
 alias kcl="kubectl"
 alias kgc="kcl config current-context"
 alias kpf="kcl port-forward"
+
+# kubectx related #
+kcc(){
+    if [ "$1" == "prod" ]
+    then kubectx prod;
+    elif [ "$1" == "uat" ]
+    then kubectx uat;
+    else echo "Invalid value passed for kubectx"
+    fi
+}
 
 # kubectl get pods #
 kgp(){
@@ -64,6 +74,7 @@ klogs(){
 kxec(){
     kcl exec -it $1 bash
 }
+
 # virtualenvwrapper settings #
 export VIRTUALENVWRAPPER_PYTHON=$(which python3)
 export WORKON_HOME=~/projects/venvs
