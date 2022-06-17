@@ -8,7 +8,7 @@
     dfn = diff --name-only
     ireb = rebase -i
     l = log --graph --pretty=format:'%Cred%h%Creset %C(auto)%d - %s %Cgreen(%cr) %C(cyan)<%an>%Creset [%C(yellow)%cd%Creset]' --abbrev-commit --date=iso-local -20
-    lm = !UN=$(git config user.name)&& git lol --author="\"$UN\""
+    lm = !UN=$(git config user.name)&& git l --author="\"$UN\""
     ll = !git l --all
     oops = reset --soft HEAD^
     st = status -bs
