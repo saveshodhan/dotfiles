@@ -9,7 +9,7 @@ alias tree="tree -A -C -I '*cache*'"
 alias lesf="less +F"
 alias vi='vim'
 alias vr='vim -R'
-alias mgrep='grep -Hnr --exclude tags --exclude *.pyc --exclude *.orig --exclude-dir venv --exclude-dir reports --exclude-dir .git'
+alias mgrep='grep -Hnr --color=always --exclude=tags --exclude=*.pyc --exclude=*.orig --exclude-dir=venv --exclude-dir=reports --exclude-dir=.git'
 pdir() {
     ll /proc/$1/cwd
 }
@@ -52,7 +52,7 @@ kgp(){
     then
         kcl get pods;
     else
-        kcl get pods | grep $1;
+        kcl get pods | awk 'NR==1 || /'$1'/';
     fi
 }
 
@@ -60,9 +60,9 @@ kgp(){
 kwp(){
     if [ "$1" == "" ];
     then
-        watch -n 1 'kubectl get pods';
+        watch -n 3 'kubectl get pods';
     else
-        watch -n 1 'kubectl get pods | grep --color=never' $@;
+        watch -n 3 "kubectl get pods | awk 'NR==1 || /'$@'/'";
     fi
 }
 
@@ -73,6 +73,10 @@ klogs(){
 
 kxec(){
     kcl exec -it $1 bash
+}
+
+kenv(){
+    kcl exec -it $1 -- bash -c "env"
 }
 
 # virtualenvwrapper settings #
