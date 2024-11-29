@@ -7,9 +7,11 @@
     dft = difftool
     dfn = diff --name-only
     ireb = rebase -i
-    l = log --graph --pretty=format:'%Cred%h%Creset %C(auto)%d - %s %Cgreen(%cr) %C(cyan)<%an>%Creset [%C(yellow)%cd%Creset]' --abbrev-commit --date=iso-local -20
-    lm = !UN=$(git config user.name)&& git l --author="\"$UN\""
-    ll = !git l --all
+    bl = log --graph --pretty=format:'%Cred%h%Creset %C(auto)%d - %s %Cgreen(%cr) %C(cyan)<%an>%Creset [%C(yellow)%cd%Creset]' --abbrev-commit --date=iso-local
+    l = !git bl -20
+    lm = !UN=$(git config user.name)&& git bl --author="\"$UN\""
+    lr = !git bl master..HEAD
+    ll = !git bl --all
     oops = reset --soft HEAD^
     st = status -bs
     stf = status
@@ -20,4 +22,6 @@
     quotepath = false
 [user]
 [diff]
+	tool = vimdiff
+[merge]
 	tool = vimdiff
