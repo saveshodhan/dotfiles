@@ -16,6 +16,11 @@
     st = status -bs
     stf = status
     recommit = commit --amend
+    fp = fetch -pP
+    s = stash
+    sl = !git s list
+    sp = !git s pop
+    sa = !git s apply
 
 [core]
     editor = vim
