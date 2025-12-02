@@ -17,10 +17,9 @@
     stf = status
     recommit = commit --amend
     fp = fetch -pP
-    s = stash
-    sl = !git s list
-    sp = !git s pop
-    sa = !git s apply
+    sl = stash list
+    sp = stash pop
+    sa = stash apply
 
 [core]
     editor = vim
